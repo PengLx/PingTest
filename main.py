@@ -1,12 +1,10 @@
-import platform
+import os
 import subprocess
 
 def ping_server(host):
-    """Ping a server to check connectivity."""
-    param = "-n" if platform.system().lower() == "windows" else "-c"
-    command = ["ping", param, "4", host]
+    """Ping a server and return its status."""
     try:
-        output = subprocess.run(command, capture_output=True, text=True, check=True)
+        output = subprocess.run(["ping", "-c", "4", host], capture_output=True, text=True, check=True)
         print(f"Server {host} is reachable.\n")
         print(output.stdout)
     except subprocess.CalledProcessError:
@@ -15,7 +13,8 @@ def ping_server(host):
 def main():
     """Main function to ping multiple servers."""
     servers = [
-        "103.248.228.188"
+        "google.com",
+        "103.248.228.188",
     ]
     
     for server in servers:
