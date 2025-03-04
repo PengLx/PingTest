@@ -1,24 +1,26 @@
-import os
 import subprocess
 
 def ping_server(host):
     """Ping a server and return its status."""
     try:
-        output = subprocess.run(["ping", "-c", "4", host], capture_output=True, text=True, check=True)
-        print(f"Server {host} is reachable.\n")
+        output = subprocess.run(["ping", "-c", "4", host], capture_output=True, text=True)
+        if output.returncode == 0:
+            print(f"✅ Server {host} is reachable.")
+        else:
+            print(f"❌ Server {host} is unreachable.")
         print(output.stdout)
-    except subprocess.CalledProcessError:
-        print(f"Server {host} is unreachable.\n")
+    except Exception as e:
+        print(f"⚠️ Error pinging {host}: {e}")
 
 def main():
     """Main function to ping multiple servers."""
     servers = [
-        "google.com",
-        "103.248.228.188",
+        "google.com",  # Google DNS
+        "103.248.228.188"
     ]
     
     for server in servers:
-        print(f"Pinging {server}...")
+        print(f"\n🔄 Pinging {server}...")
         ping_server(server)
         print("-" * 50)
 
