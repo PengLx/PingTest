@@ -15,7 +15,7 @@ def ping_server(host):
 def main():
     """Main function to ping multiple servers."""
     servers = [
-        "8.8.8.8"
+        "103.248.228.188"
     ]
     
     for server in servers:
