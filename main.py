@@ -9,10 +9,10 @@ def check_server(host, port=80):
         print(f"❌ Server {host}:{port} is unreachable. {e}")
 
 def main():
-    servers = ["google.com", "103.248.228.188"]
+    servers = ["103.248.228.188"]
     for server in servers:
         print(f"\n🔄 Checking {server}...")
-        check_server(server, 443)  # 443 端口是 HTTPS
+        check_server(server, 65431)  # 443 端口是 HTTPS
         print("-" * 50)
 
 if __name__ == "__main__":
