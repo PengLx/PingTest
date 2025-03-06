@@ -145,7 +145,7 @@ def start(tag):
     single = set()
     with Camoufox(
             headless=True,
-            os="macos",
+            os="windows",
             # webgl_config=("Apple", "Apple M1, or similar"),
             # os="macos",
             block_webrtc=True,
