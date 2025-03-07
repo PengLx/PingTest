@@ -755,7 +755,7 @@ async def handle_url(url):
             block_images=True,
             block_webrtc=True,
             humanize=True,
-            headless=False,
+            headless=True,
             firefox_user_prefs={
                 "network.protocol-handler.external.whatsapp": True,
                 "network.protocol-handler.warn-external.whatsapp": True,
